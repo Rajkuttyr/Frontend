@@ -4,6 +4,7 @@ import { createBrowserRouter, createRoutesFromElements, Route } from 'react-rout
 import Dashboard from './Dashboard';
 import Courses from './Courses';
 import Mycourses from './Mycourses'; // Assuming you have a Mycourses component 
+import Subtopics from './subtopics';
 
 const Navigation = () => {
     const router=createBrowserRouter(
@@ -11,6 +12,7 @@ const Navigation = () => {
             <Route path="dashboard" element={<Dashboard />}>
                 <Route path="courses" element={<Courses />} />
                 <Route path="mycourses" element={<Mycourses />} />
+               
                 
             </Route>
         )
