@@ -31,7 +31,7 @@ const Courses = () => {
               <p>{course.description}</p>
               {/* Remove setSubtopics from render, it's a side effect */}
               <button onClick={() => {setSubtopic(course.subtopics);
-                navigate('/subtopics',{state:{id: course.id}});
+                navigate('/subtopics',{state:{subtopic: course.subtopics}}); 
               }}>
                 View Subtopics</button>
             </li>

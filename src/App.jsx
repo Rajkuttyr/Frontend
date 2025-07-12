@@ -7,6 +7,8 @@ import Loginpages from './Login';
 import Dashboard from './Dashboard';
 import Courses from './Courses';
 import Mycourses from './Mycourses';
+import Subtopics from './subtopics';
+import Contents from './coursecontents';
 
 
 
@@ -29,7 +31,8 @@ function App() {
       <Route path="/dashboard" element={<Dashboard/>}/>
       <Route path="/courses" element={<Courses/>}/>
       <Route path="/mycourses" element={<Mycourses/>}/>
-    
+      <Route path="/subtopics" element={<Subtopics/>}/>
+      <Route path="/coursecontents" element={<Contents/>}/>
     </Routes>
     
 
