@@ -1,9 +1,17 @@
+import { useLocation } from "react-router-dom";
+
 function Contents() {
+  const location = useLocation();
+  const x = location.state.url;
   return (
     <div>
-      <h1>Course Contents</h1>
-      <p>This is the course contents page.</p>
-      {/* Add more content as needed */}
+      <iframe
+        src={x}
+        title="Course Content"
+        width="100%"
+        height="500px"
+        
+      ></iframe>
     </div>
   );
 }
