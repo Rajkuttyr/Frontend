@@ -7,6 +7,7 @@ import { useNavigate } from 'react-router-dom';
 import Navigation from './Navigation';
 
 const Dashboard = () => {
+  const navigate = useNavigate();
     
    
   return (
@@ -15,6 +16,9 @@ const Dashboard = () => {
         <Outlet/>
      
       <h1>This is Dashboard page</h1>
+      <button onClick={() => {
+        navigate('/addcourse');
+      }}>Addcourse</button>
         
 
       

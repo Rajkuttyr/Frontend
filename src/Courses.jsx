@@ -33,7 +33,7 @@ const Courses = () => {
               <button onClick={() => {setSubtopic(course.subtopics);
                 navigate('/subtopics',{state:{subtopic: course.subtopics}}); 
               }}>
-                View Subtopics</button>
+               Enroll</button>
             </li>
           )}
           
