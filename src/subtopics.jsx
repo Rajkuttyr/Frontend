@@ -14,7 +14,7 @@ function Subtopics(props){
     console.log(x);
     console.log(y);
     const navigate=useNavigate();
-    const [videoUrl, setVideoUrl] = React.useState("");
+    
    
 
     return (
@@ -23,7 +23,7 @@ function Subtopics(props){
            {x.map((item, index) => (
             <li key={index}>
                 <button onClick={() => {
-                    setVideoUrl(y[index]);
+                    
                     navigate('/coursecontents', { state: { url: y[index] } });
                 }}>
                     {item}

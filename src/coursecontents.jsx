@@ -8,7 +8,7 @@ function Contents() {
       <iframe
         src={x}
         title="Course Content"
-        width="100%"
+        width="500px"
         height="500px"
         
       ></iframe>
