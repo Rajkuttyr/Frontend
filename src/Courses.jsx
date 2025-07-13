@@ -29,6 +29,14 @@ const Courses = () => {
             <li key={course.id}>
               <h2>{course.title}</h2>
               <p>{course.description}</p>
+              <button onClick={() => {
+                axios.delete(`http://localhost:8080/api/courses/delete/${course.id}`)
+                  .then(() => {
+                    setCourseData(prev => prev.filter(c => c.id !== course.id));
+                  });
+              }}>
+                Delete
+              </button>
               {/* Remove setSubtopics from render, it's a side effect */}
               <button onClick={() => {setSubtopic(course.subtopics);
                 navigate('/subtopics',{state:{subtopic: course.subtopics}}); 
