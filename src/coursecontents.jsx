@@ -1,10 +1,12 @@
 import { useLocation } from "react-router-dom";
+import Navigation from "./Navigation";
 
 function Contents() {
   const location = useLocation();
   const x = location.state.url;
   return (
     <div>
+      <Navigation></Navigation>
       <iframe
         src={x}
         title="Course Content"
