@@ -41,7 +41,11 @@ function Subtopics(props){
 
                 }}>{item.title}</button>;
             })
-        }
+          }
+            <button onClick={() => {
+                navigate('/quizz',{state: { id: subtopics }});
+              }}>Quizz</button>
+        
       
         
      
