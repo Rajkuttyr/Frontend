@@ -3,13 +3,16 @@ import { useLocation, useNavigate } from "react-router-dom";
 
 import axios from "axios";
 import Navigation from "./Navigation";
+
 function Quizz(){
+    const navigate = useNavigate();
     const x= useLocation();
     const courseid = x.state.id;
     const [data, setData] = useState([]);
     const ca =[];
+    const [passed, setPassed] = useState(false);
     useEffect(() => {
-        axios.get(`http://localhost:8080/api/quizzes/${courseid}/quiz/attend`)
+        axios.get(`http://localhost:8080/api/quizzes/courseid/${courseid}/questions/all`)
         .then((response) => {
             setData(response.data);
         })
@@ -61,8 +64,11 @@ function Quizz(){
              <button onClick={() => {
                 if (ca.length === data.length) {
                     alert("Congratulations! You have passed the quiz.");
+                    setPassed(true);
+                    navigate('/courses',{state: { courseId: courseid } });
                 } else {
                     alert("You have not passed the quiz. Please try again.");
+                    setPassed(false);
                 }
             }}>Submit</button>
        

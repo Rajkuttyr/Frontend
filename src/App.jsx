@@ -11,7 +11,7 @@ import Subtopics from './subtopics';
 import Contents from './coursecontents';
 import CourseForm from './Addcourse';
 import Quizz from './Quizz';
-
+import Completedcourse from './Completedcourse';
 
 
 
@@ -37,6 +37,8 @@ function App() {
       <Route path="/coursecontents" element={<Contents/>}/>
       <Route path="/addcourse" element={<CourseForm/>}/>
       <Route path="/quizz" element={<Quizz/>}/>
+      <Route path='/completedcourses' element={<Completedcourse/>}/>
+      <Route path='/ongoing' element={<Mycourses/>}/>
     </Routes>
     
     

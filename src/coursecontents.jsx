@@ -6,13 +6,12 @@ function Contents() {
   const x = location.state.url;
   return (
     <div>
-      <Navigation></Navigation>
+      <Navigation />
       <iframe
         src={x}
         title="Course Content"
         width="500px"
         height="500px"
-        
       ></iframe>
     </div>
   );
