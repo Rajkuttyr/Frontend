@@ -1,14 +1,13 @@
-import {Link, NavLink, Route, useNavigate} from "react-router-dom";
-import Dashboard from "./Dashboard";
+import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 import axios from "axios";
 
 function Loginpages() {
-  const navigate=useNavigate();
+  const navigate = useNavigate();
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [isLoggedIn, setIsLoggedIn] = useState(false);
-  const [data,setData] = useState([]);
+  const [data, setData] = useState([]);
 
   const checkLogin = () => {
     if (username === "admin" && password === "admin") {
@@ -22,7 +21,12 @@ function Loginpages() {
       .then((response) => {
         const users = response.data;
         setData(users);
-        if (Array.isArray(users) && users.length > 0 && users[0].password === password) {
+        // Check password field from your endpoint structure
+        if (
+          Array.isArray(users) &&
+          users.length > 0 &&
+          users[0].password === password
+        ) {
           setIsLoggedIn(true);
           navigate("/dashboard");
         } else {
@@ -44,20 +48,30 @@ function Loginpages() {
         type="text"
         placeholder="Enter your username"
         value={username}
-        onChange={(e)=>{setUsername(e.target.value)}}
+        onChange={(e) => setUsername(e.target.value)}
       />
-      <br/>
+      <br />
       <p className="login-label">Password:</p>
       <input
         className="login-input"
         type="password"
         placeholder="Enter your password"
         value={password}
-        onChange={(e)=>setPassword(e.target.value)}
+        onChange={(e) => setPassword(e.target.value)}
       />
-      <br/>
-      <button className="login-btn" onClick={checkLogin}>Login</button>
+      <br />
+      <button className="login-btn" onClick={checkLogin}>
+        Login
+      </button>
+      <br />
+      <button
+        className="signup-btn"
+        onClick={() => navigate("/signup")}
+        style={{ marginTop: "1rem" }}
+      >
+        Sign Up
+      </button>
     </div>
   );
 }
-export default Loginpages
+export default Loginpages;

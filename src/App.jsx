@@ -12,6 +12,8 @@ import Contents from './coursecontents';
 import CourseForm from './Addcourse';
 import Quizz from './Quizz';
 import Completedcourse from './Completedcourse';
+import Signup from './Signup';
+import axios from 'axios';    
 
 
 
@@ -39,6 +41,7 @@ function App() {
       <Route path="/quizz" element={<Quizz/>}/>
       <Route path='/completedcourses' element={<Completedcourse/>}/>
       <Route path='/ongoing' element={<Mycourses/>}/>
+      <Route path ='/signup' element={<Signup/>}/>
     </Routes>
     
     

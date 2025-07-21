@@ -21,6 +21,8 @@ const Courses = () => {
     }
   )
 
+  
+
   },[])
   return (
     <div>

@@ -8,6 +8,7 @@ function Subtopics(props) {
     const navigate = useNavigate();
     const location = useLocation();
     const subtopics = location.state.subtopic;
+    
     const [topics, setTopics] = useState([]);
     const [url, setUrl] = useState("");
 
