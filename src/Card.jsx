@@ -5,6 +5,8 @@ function Card(props){
     const [coursedata,setCourseData]=useState([]);
     const [subtopic, setSubtopic] = useState("");
     const navigate =useNavigate();
+
+
    
     return (
         <div className="card">
@@ -25,8 +27,16 @@ function Card(props){
         <button
           className="card-enroll-btn"
           onClick={() => {
+            axios.post(`http://localhost:8080/enrollments/enrolment/add`, {
+              courseId: props.sub,
+              enrollmentDate: new Date().toISOString(),},{
+              headers: {
+                Authorization: `Bearer ${localStorage.getItem("token")}`
+              }
+            })
             setSubtopic(props.sub);
             navigate('/subtopics', { state: { subtopic: props.sub } });
+            
           }}
         >
           Enroll

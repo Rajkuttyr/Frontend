@@ -1,43 +1,32 @@
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 import axios from "axios";
+import React from "react";
 
 function Loginpages() {
   const navigate = useNavigate();
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [isLoggedIn, setIsLoggedIn] = useState(false);
-  const [data, setData] = useState([]);
+  const [data, setData] = useState({});
 
-  const checkLogin = () => {
-    if (username === "admin" && password === "admin") {
-      setIsLoggedIn(true);
-      navigate("/dashboard");
-      return;
-    }
-
-    axios
-      .get(`http://localhost:8080/api/users/search?username=${username}`)
-      .then((response) => {
-        const users = response.data;
-        setData(users);
-        // Check password field from your endpoint structure
-        if (
-          Array.isArray(users) &&
-          users.length > 0 &&
-          users[0].password === password
-        ) {
-          setIsLoggedIn(true);
-          navigate("/dashboard");
-        } else {
-          setIsLoggedIn(false);
-          alert("Invalid username or password");
-        }
-      })
-      .catch((error) => {
-        console.error("Error fetching data:", error);
-        alert("Login failed. Please try again.");
+  const checkLogin = async(e) => {
+    e.preventDefault();
+    try{
+      const response = await axios.post("http://localhost:8080/auth/login",{
+        username: username,
+        password: password,
       });
+      const {token}=response.data;
+      console.log("Login successful:", token);
+      setData(response.data);
+      localStorage.setItem("token", token);
+      navigate("/dashboard");
+      setIsLoggedIn(true);
+    }catch(err) {
+      console.error("Login failed:", err);
+      alert("Login failed. Please check your credentials.");
+    }
   };
 
   return (

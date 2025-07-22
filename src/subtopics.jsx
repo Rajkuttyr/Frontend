@@ -13,7 +13,13 @@ function Subtopics(props) {
     const [url, setUrl] = useState("");
 
     useEffect(() => {
-        axios.get(`http://localhost:8080/api/subtopics/courseid/${subtopics}/all`)
+        axios.get(`http://localhost:8080/subtopics/courseid/${subtopics}/all`,{
+            
+                headers: {
+                    Authorization: `Bearer ${localStorage.getItem("token")}`
+                }
+            
+        })
             .then((response) => {
                 setTopics(response.data);
             })

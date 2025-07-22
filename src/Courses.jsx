@@ -11,7 +11,12 @@ const Courses = () => {
  
 
   useEffect(()=>{
-    axios.get("http://localhost:8080/api/courses/all")
+    axios.get("http://localhost:8080/courses/all",{
+      headers: {
+        Authorization: `Bearer ${localStorage.getItem("token")}`
+    }
+  })
+    
     .then((response)=>{
     const courses = response.data;
     setCourseData(courses);

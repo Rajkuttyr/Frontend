@@ -12,7 +12,11 @@ function Quizz(){
     const ca =[];
     const [passed, setPassed] = useState(false);
     useEffect(() => {
-        axios.get(`http://localhost:8080/api/quizzes/courseid/${courseid}/questions/all`)
+        axios.get(`http://localhost:8080/quizzes/courseid/${courseid}/questions/all`,{
+            headers: {
+                Authorization: `Bearer ${localStorage.getItem("token")}`
+            }
+        })
         .then((response) => {
             setData(response.data);
         })
