@@ -27,7 +27,7 @@ function Card(props){
         <button
           className="card-enroll-btn"
           onClick={() => {
-            axios.post(`http://localhost:8080/enrollments/enrolment/add`, {
+            axios.post(`http://localhost:8080/enrollments/add`, {
               courseId: props.sub,
               enrollmentDate: new Date().toISOString(),},{
               headers: {
@@ -35,7 +35,7 @@ function Card(props){
               }
             })
             setSubtopic(props.sub);
-            navigate('/subtopics', { state: { subtopic: props.sub } });
+            navigate('/coursedetail', { state: { courseId: props.sub } });
             
           }}
         >
