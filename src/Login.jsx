@@ -21,6 +21,7 @@ function Loginpages() {
       console.log("Login successful:", token);
       setData(response.data);
       localStorage.setItem("token", token);
+      localStorage.setItem("user",username);
       navigate("/dashboard");
       setIsLoggedIn(true);
     }catch(err) {

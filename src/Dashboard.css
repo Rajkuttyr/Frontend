@@ -1,0 +1,83 @@
+/* Container */
+.dashboard-container {
+  background-color: #f9f9f9;
+  min-height: 100vh;
+  padding-bottom: 2rem;
+}
+
+/* Content Section */
+.dashboard-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+/* Heading */
+.dashboard-heading {
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+/* Card Grid */
+.dashboard-cards {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 2rem;
+  margin-bottom: 2rem;
+}
+
+/* Individual Card */
+.dashboardcard, .dashboard.card {
+  background-color: #fff;
+  border-radius: 12px;
+  padding: 1.5rem 2rem;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  text-align: center;
+  width: 250px;
+  transition: transform 0.2s ease;
+}
+
+.dashboardcard:hover, .dashboard.card:hover {
+  transform: translateY(-5px);
+}
+
+/* Card Labels */
+.dashboard.card-label {
+  font-size: 1rem;
+  color: #777;
+  margin-bottom: 0.5rem;
+}
+
+/* Card Values */
+.dashboard.card-value {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #333;
+}
+
+/* Button Section */
+.dashboard-actions {
+  display: flex;
+  justify-content: center;
+  margin-top: 2rem;
+}
+
+.add-course-btn {
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  font-weight: 600;
+  color: white;
+  background-color: #4F46E5;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.add-course-btn:hover {
+  background-color: #4338CA;
+}

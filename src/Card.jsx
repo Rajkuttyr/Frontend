@@ -16,11 +16,14 @@ function Card(props){
         <button
           className="card-delete-btn"
           onClick={() => {
-            axios.delete(`http://localhost:8080/api/courses${props.sub}/delete/`)
+            axios.delete(`http://localhost:8080/courses/courseid/${props.sub}/delete`)
               .then(() => {
                 setCourseData(prev => prev.filter(c => c.id !== course.id));
               });
-          }}
+             
+          }
+          
+        }
         >
           Delete
         </button>
