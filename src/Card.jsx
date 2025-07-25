@@ -16,7 +16,11 @@ function Card(props){
         <button
           className="card-delete-btn"
           onClick={() => {
-            axios.delete(`http://localhost:8080/courses/courseid/${props.sub}/delete`)
+            axios.delete(`http://localhost:8080/courses/courseid/${props.sub}/delete`,{
+              headers: {
+                Authorization: `Bearer ${localStorage.getItem('token')}`
+              }
+            })
               .then(() => {
                 setCourseData(prev => prev.filter(c => c.id !== course.id));
               });

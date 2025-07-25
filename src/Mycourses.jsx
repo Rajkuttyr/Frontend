@@ -6,6 +6,7 @@ import './Mycourses.css'; // <-- Add this line to link the CSS file
 
 const Mycourses = () => {
   const [courses, setCourses] = React.useState([]);
+  const [Completed,setCompleted] = React.useState([]);
 
   useEffect(() => {
     axios.get("http://localhost:8080/enrollments/mine", {
@@ -18,6 +19,18 @@ const Mycourses = () => {
       console.log("My courses data:", response.data);
     });
   }, []);
+   useEffect(() => {
+    axios.get("http://localhost:8080/enrollments/mycompleted", {
+      headers: {
+        Authorization: `Bearer ${localStorage.getItem("token")}`
+      }
+    })
+    .then((response) => {
+      setCompleted(response.data);
+      console.log("My courses data:", response.data);
+    });
+  }, []);
+
 
   return (
     <>
@@ -35,6 +48,20 @@ const Mycourses = () => {
           ))}
         </div>
       </div>
+      <div>
+        <h2>Completed Course</h2>
+         <div className="courses-grid">
+          {Completed.map((course, index) => (
+            <Enroll
+              
+              image={course.thumbnailUrl}
+              title={course.title}
+              sub={course.id}
+            />
+          ))}
+        </div>
+      </div>
+
     </>
   );
 };

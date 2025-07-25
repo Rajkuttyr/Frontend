@@ -69,6 +69,18 @@ function Quizz(){
                 if (ca.length === data.length) {
                     alert("Congratulations! You have passed the quiz.");
                     setPassed(true);
+                    axios.put(`http://localhost:8080/enrollments/courseid/${courseid}/update`, {
+                        isCompleted: true,},{
+                        headers:{
+                            Authorization: `Bearer ${localStorage.getItem("token")}`
+                        }
+                    })
+                    .then((response) => {
+                        console.log(response);
+                    })
+                    .catch((error) => {
+                        console.log(error);
+                    });
                     navigate('/courses',{state: { courseId: courseid } });
                 } else {
                     alert("You have not passed the quiz. Please try again.");
