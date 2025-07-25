@@ -49,8 +49,15 @@ const Dashboard = () => {
             ➕ Add New Course
           </button>
         </div>
+        
+      </div>
+      <div>
+        <button onClick={()=>{
+          navigate("/controlrole")
+        }} >ControllRole</button>
       </div>
     </div>
+    
   );
 };
 
