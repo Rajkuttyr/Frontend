@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
+import Navigation from "./Navigation";
 
 function Controllrole() {
   const [data, setData] = useState([]);
@@ -45,6 +46,8 @@ function Controllrole() {
   };
 
   return (
+    <>
+    <Navigation/>
     <ul>
       {data.map((item) => (
         <li key={item.id}>
@@ -54,6 +57,7 @@ function Controllrole() {
         </li>
       ))}
     </ul>
+    </>
   );
 }
 
