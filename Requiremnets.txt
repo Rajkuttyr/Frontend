@@ -1,0 +1,24 @@
+Requirements:
+Front End:
+Node js
+Backend:
+Java JDk ^17
+Maven 
+
+Commands to run the project
+Frontend
+cd Frontend
+npm install (install's - axios,react routerdom,vite project)
+npm run dev( to run )
+Backend:
+cd vdartcourses
+mvn spring-boot:run
+front end runs at port 5173
+Backend runs at port 8080
+Database
+Mongo-db atlas
+add credentials in application.propreties file in backend
+
+
+
+
